@@ -12,21 +12,26 @@ const closeModalBtn = document.querySelector(".close")
 
 let sec = 0
 let min = 0
+let countTime
 
 const handleStart = () => {
-	setInterval(() => {
+	clearInterval(countTime)
+	countTime = setInterval(() => {
 		sec++
-	if (sec <= 9 ){
-		stopwatch.textContent = `${min}:0${sec}`
-	} else if (sec > 9 && sec <=59){
-		stopwatch.textContent = `${min}:${sec}`
-	} else {
-		sec = 0
-		min++
-		stopwatch.textContent = `${min}:0${sec}`
-	}
-	
-	}, 200)
+		if (sec <= 9) {
+			stopwatch.textContent = `${min}:0${sec}`
+		} else if (sec > 9 && sec <= 59) {
+			stopwatch.textContent = `${min}:${sec}`
+		} else {
+			sec = 0
+			min++
+			stopwatch.textContent = `${min}:0${sec}`
+		}
+	}, 1000)
 }
 
+const handlePause = () => {
+	clearInterval(countTime)
+}
 startBtn.addEventListener("click", handleStart)
+pauseBtn.addEventListener("click", handlePause)
