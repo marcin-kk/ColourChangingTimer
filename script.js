@@ -27,11 +27,39 @@ const handleStart = () => {
 			min++
 			stopwatch.textContent = `${min}:0${sec}`
 		}
-	}, 1000)
+	}, 50)
 }
 
 const handlePause = () => {
 	clearInterval(countTime)
 }
+
+const handleStop = () => {
+	console.log("stop")
+	clearInterval(countTime)
+	timeResult()
+}
+
+const timeResult = () => {
+	const newTime = document.createElement("li")
+
+	if (sec <= 9) {
+		newTime.textContent = `${min}:0${sec}`
+	}
+	if (sec > 9 && sec <= 59) {
+		newTime.textContent = `${min}:${sec}`
+	}
+
+	timeList.append(newTime)
+	clearStopwatch()
+}
+
+const clearStopwatch = () => {
+	stopwatch.textContent = "0:00"
+	sec = 0
+	min = 0
+}
+
 startBtn.addEventListener("click", handleStart)
 pauseBtn.addEventListener("click", handlePause)
+stopBtn.addEventListener("click", handleStop)
