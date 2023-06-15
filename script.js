@@ -35,18 +35,16 @@ const handlePause = () => {
 }
 
 const handleStop = () => {
-	console.log("stop")
 	clearInterval(countTime)
-	timeResult()
+	createTimeResult()
 }
 
-const timeResult = () => {
+const createTimeResult = () => {
 	const newTime = document.createElement("li")
 
 	if (sec <= 9) {
 		newTime.textContent = `${min}:0${sec}`
-	}
-	if (sec > 9 && sec <= 59) {
+	} else  {
 		newTime.textContent = `${min}:${sec}`
 	}
 
