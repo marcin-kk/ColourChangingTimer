@@ -67,9 +67,31 @@ const createTimeRecord = () => {
 }
 
 const handleVisibility = () => {
-	timeList.classList.toggle('showlist')
+	timeList.classList.toggle("showlist")
 }
+
+const resetHandle = () => {
+	clearStopwatch()
+	timeHistoryArray = []
+	timeList.textContent = ""
+	timeList.classList.remove("showlist")
+}
+
+const toggleModal = () => {
+	if (modalShadow.style.display === "block") {
+		modalShadow.style.display = "none"
+	} else {
+		modalShadow.style.display = "block"
+	}
+}
+
 startBtn.addEventListener("click", handleStart)
 pauseBtn.addEventListener("click", handlePause)
 stopBtn.addEventListener("click", handleStop)
 historyBtn.addEventListener("click", handleVisibility)
+resetBtn.addEventListener("click", resetHandle)
+infoBtn.addEventListener("click", toggleModal)
+closeModalBtn.addEventListener("click", toggleModal)
+window.addEventListener("click", e =>
+	e.target === modalShadow ? toggleModal() : false
+)

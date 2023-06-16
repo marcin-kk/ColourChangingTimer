@@ -160,7 +160,7 @@ button:focus {
 }
 
 .modal-animation {
-	animation: show-modal 0.5s;
+	animation: show-modal .4s;
 }
 
 @keyframes show-modal {
