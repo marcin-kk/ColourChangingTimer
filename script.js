@@ -13,6 +13,7 @@ const closeModalBtn = document.querySelector(".close")
 let sec = 0
 let min = 0
 let countTime
+let timeHistoryArray = []
 
 const handleStart = () => {
 	clearInterval(countTime)
@@ -36,19 +37,17 @@ const handlePause = () => {
 
 const handleStop = () => {
 	clearInterval(countTime)
-	createTimeResult()
+	recordTimeResult()
+	createTimeRecord()
 }
 
-const createTimeResult = () => {
-	const newTime = document.createElement("li")
-
-	if (sec <= 9) {
-		newTime.textContent = `${min}:0${sec}`
-	} else  {
-		newTime.textContent = `${min}:${sec}`
+const recordTimeResult = () => {
+	if (stopwatch.textContent !== "0:00") {
+		time.style.visibility = "visible"
+		time.innerHTML = `Last recorded time: ${stopwatch.textContent}`
+		timeHistoryArray.push(`${stopwatch.textContent}`)
+		console.log(timeHistoryArray)
 	}
-
-	timeList.append(newTime)
 	clearStopwatch()
 }
 
@@ -58,6 +57,19 @@ const clearStopwatch = () => {
 	min = 0
 }
 
+const createTimeRecord = () => {
+	timeList.textContent = ""
+	timeHistoryArray.forEach(time => {
+		const liTime = document.createElement("li")
+		liTime.append(time)
+		timeList.append(liTime)
+	})
+}
+
+const handleVisibility = () => {
+	timeList.classList.toggle('showlist')
+}
 startBtn.addEventListener("click", handleStart)
 pauseBtn.addEventListener("click", handlePause)
 stopBtn.addEventListener("click", handleStop)
+historyBtn.addEventListener("click", handleVisibility)

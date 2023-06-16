@@ -64,7 +64,7 @@ h1 {
 }
 
 .time {
-	/* visibility: hidden; */
+	visibility: hidden;
 	color: var(--second-color);
 	font-size: 22px;
 }
@@ -100,6 +100,9 @@ button:focus {
 	outline: none;
 }
 
+.time-list {
+	visibility: hidden;
+}
 .time-list li {
 	display: flex;
 	justify-content: space-between;
@@ -117,7 +120,7 @@ button:focus {
 	position: absolute;
 	width: 100%;
 	height: 100%;
-	background-color: rgba(0,0,0, .65);
+	background-color: rgba(0, 0, 0, 0.65);
 }
 
 .modal {
@@ -129,7 +132,7 @@ button:focus {
 	height: 360px;
 	padding: 30px 60px;
 	border-radius: 15px;
-	background-color: rgb(255, 255, 255)
+	background-color: rgb(255, 255, 255);
 }
 
 .modal h3 {
@@ -149,7 +152,7 @@ button:focus {
 	margin: 40px auto 0;
 	width: 200px;
 	background-color: var(--first-color);
-	transition: background-color .3s;
+	transition: background-color 0.3s;
 }
 
 .modal .close:hover {
@@ -157,7 +160,7 @@ button:focus {
 }
 
 .modal-animation {
-	animation: show-modal .5s ;
+	animation: show-modal 0.5s;
 }
 
 @keyframes show-modal {
@@ -167,4 +170,8 @@ button:focus {
 	to {
 		opacity: 1;
 	}
+}
+
+.showlist {
+	visibility: visible;
 }
