@@ -59,10 +59,12 @@ const clearStopwatch = () => {
 
 const createTimeRecord = () => {
 	timeList.textContent = ""
+	num = 1
 	timeHistoryArray.forEach(time => {
 		const liTime = document.createElement("li")
-		liTime.append(time)
+		liTime.innerHTML = `Timing number ${num}:<span>${time}</span>`
 		timeList.append(liTime)
+		num++
 	})
 }
 

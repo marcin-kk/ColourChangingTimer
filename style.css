@@ -115,6 +115,10 @@ button:focus {
 	font-weight: bold;
 }
 
+.showlist {
+	visibility: visible;
+}
+
 .modal-shadow {
 	display: none;
 	position: absolute;
@@ -160,7 +164,7 @@ button:focus {
 }
 
 .modal-animation {
-	animation: show-modal .4s;
+	animation: show-modal 0.4s;
 }
 
 @keyframes show-modal {
@@ -172,6 +176,3 @@ button:focus {
 	}
 }
 
-.showlist {
-	visibility: visible;
-}
